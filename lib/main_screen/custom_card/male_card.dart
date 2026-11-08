@@ -8,7 +8,16 @@ class MaleCardSettings {
 }
 
 class MaleCard extends CustomCard {
-  MaleCard() : super(icon: Icons.male);
+  MaleCard({super.cardBgColor});
+
+  MaleCard.second()
+    : super.secondConstructor(
+        cardChild: Container(
+          padding: EdgeInsets.symmetric(vertical: 65, horizontal: 0),
+          alignment: Alignment.center,
+          child: Text("MALE"),
+        ),
+      );
 
   @override
   void onTapMethodBeforeState() {
@@ -40,7 +49,7 @@ class MaleCard extends CustomCard {
     int randomNum = Random().nextInt(icons.length);
     int randomNum2 = Random().nextInt(colors.length);
 
-    super.customCardSettings.icon = icons[randomNum];
+    // super.customCardSettings.icon = icons[randomNum];
     super.customCardSettings.cardBgColor = colors[randomNum2];
   }
 }

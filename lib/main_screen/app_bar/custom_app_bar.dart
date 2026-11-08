@@ -6,7 +6,7 @@ class CustomAppBarSettings {
   final double APPBAR_WIDTH = double.infinity;
   final double APPBAR_HEIGHT = 40;
 
-  final BG_COLOR = SystemConfigs.BG_COLOR;
+  // final BG_COLOR = SystemConfigs.BG_COLOR;
 
   final CENTER_TITLE = true;
 }
@@ -21,7 +21,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: this.customAppBarSettings.BG_COLOR,
+      // backgroundColor: this.customAppBarSettings.BG_COLOR,
       centerTitle: this.customAppBarSettings.CENTER_TITLE,
       title: CustomAppBarTitleWg(),
     );

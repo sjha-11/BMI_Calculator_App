@@ -2,7 +2,7 @@ import 'package:bmi_calculator_app/main_screen/custom_card/custom_card_child_col
 import 'package:flutter/material.dart';
 
 class CustomCardChildSettings {
-  EdgeInsets padding = EdgeInsets.symmetric(vertical: 5, horizontal: 5);
+  EdgeInsets padding = EdgeInsets.symmetric(vertical: 35, horizontal: 25);
 
   late IconData icon;
 
@@ -27,7 +27,7 @@ class _CustomCardChildState extends State<CustomCardChild> {
   Widget build(BuildContext context) {
     return Container(
       padding: this.widget.cardChildSettings.padding,
-      child: CustomCardChildColumn(icon:this.widget.cardChildSettings.icon),
+      child: CustomCardChildColumn(icon: this.widget.cardChildSettings.icon),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SystemConfigs {
-  static final Color BG_COLOR = Colors.indigo.shade900;
+  static final Color BG_COLOR = Color(0x2F2B3C);
 
   static final Color LIGHT_FONT_COLOR = Colors.white;
 

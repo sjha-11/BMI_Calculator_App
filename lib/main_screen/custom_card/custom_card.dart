@@ -8,8 +8,6 @@ abstract class ICustomCardServices {
   void setStateBody();
 }
 
-class HelloWddd {}
-
 class CustomCardSettings {
   late Color cardBgColor;
 
@@ -17,7 +15,7 @@ class CustomCardSettings {
 
   int counter = 0;
 
-  CustomCardSettings(IconData? icon, Color? cardBgColor) {
+  CustomCardSettings({IconData? icon, Color? cardBgColor}) {
     this.icon = icon ?? Icons.sentiment_dissatisfied;
     this.cardBgColor = cardBgColor ?? SystemConfigs.BG_COLOR;
   }
@@ -26,8 +24,18 @@ class CustomCardSettings {
 class CustomCard extends StatefulWidget implements ICustomCardServices {
   late CustomCardSettings customCardSettings;
 
+  Widget? cardChild;
+
   CustomCard({IconData? icon, Color? cardBgColor, super.key}) {
-    this.customCardSettings = CustomCardSettings(icon, cardBgColor);
+    this.customCardSettings = CustomCardSettings(
+      icon: icon,
+      cardBgColor: cardBgColor,
+    );
+  }
+
+  CustomCard.secondConstructor({required Widget cardChild, super.key}) {
+    this.customCardSettings = CustomCardSettings();
+    this.cardChild = cardChild;
   }
 
   @override
@@ -40,25 +48,25 @@ class CustomCard extends StatefulWidget implements ICustomCardServices {
 
   @override
   void setStateBody() {
-    this.customCardSettings.cardBgColor =
-        (this.customCardSettings.counter++ % 2) == 0
-        ? Colors.green
-        : Colors.orangeAccent;
+    // this.customCardSettings.cardBgColor =
+    //     (this.customCardSettings.counter++ % 2) == 0
+    //     ? Colors.green
+    //     : Colors.orangeAccent;
   }
 }
 
 class _CustomCardState extends State<CustomCard> {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GestureDetector(
-        onTap: this.doSequence,
-        child: Card(
-          color: this.widget.customCardSettings.cardBgColor,
-          child: CustomCardChild(icon: this.widget.customCardSettings.icon),
-        ),
-      ),
+    return Card(
+      color: this.widget.customCardSettings.cardBgColor,
+      child: this.checkIfChildExist(),
     );
+  }
+
+  Widget checkIfChildExist() {
+    return this.widget.cardChild ??
+        CustomCardChild(icon: this.widget.customCardSettings.icon);
   }
 
   void doSequence() {
