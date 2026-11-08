@@ -26,6 +26,8 @@ class CustomCard extends StatefulWidget implements ICustomCardServices {
 
   Widget? cardChild;
 
+  Function? onTapFunction;
+
   CustomCard({IconData? icon, Color? cardBgColor, super.key}) {
     this.customCardSettings = CustomCardSettings(
       icon: icon,
@@ -33,9 +35,14 @@ class CustomCard extends StatefulWidget implements ICustomCardServices {
     );
   }
 
-  CustomCard.secondConstructor({required Widget cardChild, super.key}) {
+  CustomCard.secondConstructor({
+    required Widget cardChild,
+    Function? onTapFunction,
+    super.key,
+  }) {
     this.customCardSettings = CustomCardSettings();
     this.cardChild = cardChild;
+    this.onTapFunction = onTapFunction;
   }
 
   @override
@@ -58,9 +65,12 @@ class CustomCard extends StatefulWidget implements ICustomCardServices {
 class _CustomCardState extends State<CustomCard> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: this.widget.customCardSettings.cardBgColor,
-      child: this.checkIfChildExist(),
+    return GestureDetector(
+      onTap: this.widget.onTapFunction as GestureTapCallback?,
+      child: Card(
+        color: this.widget.customCardSettings.cardBgColor,
+        child: this.checkIfChildExist(),
+      ),
     );
   }
 
