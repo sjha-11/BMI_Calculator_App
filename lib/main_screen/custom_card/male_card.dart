@@ -1,23 +1,33 @@
 import 'dart:math';
 
 import 'package:bmi_calculator_app/main_screen/custom_card/custom_card.dart';
+import 'package:bmi_calculator_app/main_screen/custom_card/icon_card.dart';
 import 'package:flutter/material.dart';
 
 class MaleCardSettings {
   IconData icon = Icons.male;
 }
 
-class MaleCard extends CustomCard {
-  MaleCard({super.cardBgColor});
+class MaleCard extends IconCard {
+  // MaleCard({super.cardBgColor});
 
-  MaleCard.second()
-    : super.secondConstructor(
-        cardChild: Container(
-          padding: EdgeInsets.symmetric(vertical: 65, horizontal: 0),
-          alignment: Alignment.center,
-          child: Text("MALE"),
-        ),
+  MaleCard({Function? onTapFunction, Color? cardBgColor})
+    : super(
+        icon: Icons.male,
+        title: "MALE",
+        onTapFunction: onTapFunction,
+        cardBgColor: cardBgColor,
       );
+
+  // MaleCard.second(Function? onTapFunction)
+  //   : super.secondConstructor(
+  //       cardChild: Container(
+  //         padding: EdgeInsets.symmetric(vertical: 65, horizontal: 0),
+  //         alignment: Alignment.center,
+  //         child: Text("MALE"),
+  //       ),
+  //       onTapFunction: onTapFunction,
+  //     );
 
   @override
   void onTapMethodBeforeState() {

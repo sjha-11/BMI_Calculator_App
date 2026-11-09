@@ -9,10 +9,10 @@ enum Gender { MALE, FEMALE }
 class ColumnFirstChildSettings {
   double SPACING = 10;
 
-  Color maleBgColor = SystemConfigs.BG_COLOR;
-  Color femaleBgColor = SystemConfigs.BG_COLOR;
+  Color maleBgColor = SystemConfigs.ACCENT_COLOR;
+  Color femaleBgColor = SystemConfigs.ACCENT_COLOR;
   Color clickedColor = Color(0xFF232136);
-  Color unClickedColor = SystemConfigs.BG_COLOR;
+  Color unClickedColor = SystemConfigs.ACCENT_COLOR;
 
   Gender? clickedCard;
 }
@@ -35,23 +35,19 @@ class _ColumnFirstChildState extends State<ColumnFirstChild> {
       spacing: this.widget.columnFirstChildSettings.SPACING,
       children: [
         Expanded(
-          child: GestureDetector(
-            onTap: () {
+          child: FemaleCard(
+            cardBgColor: this.widget.columnFirstChildSettings.femaleBgColor,
+            onTapFunction: () {
               this.clickCard(Gender.FEMALE);
             },
-            child: FemaleCard(
-              cardBgColor: this.widget.columnFirstChildSettings.femaleBgColor,
-            ),
           ),
         ),
         Expanded(
-          child: GestureDetector(
-            onTap: () {
+          child: MaleCard(
+            cardBgColor: this.widget.columnFirstChildSettings.maleBgColor,
+            onTapFunction: () {
               this.clickCard(Gender.MALE);
             },
-            child: MaleCard(
-              cardBgColor: this.widget.columnFirstChildSettings.maleBgColor,
-            ),
           ),
         ),
       ],

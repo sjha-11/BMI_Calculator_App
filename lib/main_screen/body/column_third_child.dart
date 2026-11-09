@@ -17,8 +17,24 @@ class ColumnThirdChild extends StatelessWidget {
     return Row(
       spacing: this.columnThirdChildSettings.SPACING,
       children: [
-        Expanded(child: CustomCard()),
-        Expanded(child: CustomCard()),
+        Expanded(
+          child: CustomCard(
+            cardChild: Container(
+              padding: EdgeInsets.symmetric(vertical: 65, horizontal: 0),
+              alignment: Alignment.center,
+              child: Text("MALE"),
+            ),
+          ),
+        ),
+        Expanded(
+          child: CustomCard(
+            cardChild: Container(
+              padding: EdgeInsets.symmetric(vertical: 65, horizontal: 0),
+              alignment: Alignment.center,
+              child: Text("MALE"),
+            ),
+          ),
+        ),
       ],
     );
   }

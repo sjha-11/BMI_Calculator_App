@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomBottomBarSettings {
   Color containerColor = Color(0xFFEB1555);
 
-  EdgeInsets containerPadding = EdgeInsets.symmetric(vertical: 17);
+  EdgeInsets containerPadding = EdgeInsets.symmetric(vertical: 27);
 }
 
 class CustomBottomBar extends StatefulWidget {
@@ -25,8 +25,15 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
         print("Hello World from bottom navbar");
       },
       child: Container(
-        color: this.widget.customBottomBarSettings.containerColor,
         padding: this.widget.customBottomBarSettings.containerPadding,
+        margin: EdgeInsets.only(bottom: 20),
+        decoration: BoxDecoration(
+          color: this.widget.customBottomBarSettings.containerColor,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(15),
+            topRight: Radius.circular(15),
+          ),
+        ),
         // height: 40,
         // alignment: Alignment.center,
         child: Text(
